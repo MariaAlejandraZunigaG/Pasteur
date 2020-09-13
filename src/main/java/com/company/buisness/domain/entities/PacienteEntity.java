@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,4 +27,9 @@ public class PacienteEntity implements Serializable {
     @OneToOne
     @JoinColumn(name = "id_persona", referencedColumnName = "id")
     private PersonaEntity persona;
+
+
+    @OneToMany (mappedBy = "pacientes")
+    private List<CitaEntity> citas;
+
 }

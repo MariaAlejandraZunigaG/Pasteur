@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,7 +28,8 @@ public class ConsultorioEntity implements Serializable {
    @JoinColumn(name = "id_especialidad", referencedColumnName = "id")
    private EspecialidadEntity especialidad;
 
-
+   @OneToMany (mappedBy = "consultorios")
+   private List<CitaEntity> citas;
 
 }
 
